@@ -31,7 +31,7 @@ public class UserServlet extends HttpServlet {
             roles = user_role.getAll();
             request.setAttribute("users", users);
             for (User user : users) {
-                id = user.getRole().getId();
+                id = user.getRole().getRoleId();
 
             }
             request.setAttribute("id", id);
@@ -75,12 +75,12 @@ public class UserServlet extends HttpServlet {
             throws ServletException, IOException {
 
         UserService us = new UserService();
-        RoleService user_role = new RoleService();
+       // RoleService user_role = new RoleService();
 
         String action = request.getParameter("action");
         String email = request.getParameter("email");
-        List<User> users;
-        List<Role> roles;
+       // List<User> users;
+      //  List<Role> roles;
         String firstName = request.getParameter("firstName");
         request.setAttribute("firstName", firstName);
         String lastName = request.getParameter("lastName");
@@ -118,6 +118,7 @@ public class UserServlet extends HttpServlet {
                 case "delete":
                     us.delete(email);
                     response.sendRedirect("/");
+                    break;
             }
             request.setAttribute("message", action);
         } catch (Exception ex) {

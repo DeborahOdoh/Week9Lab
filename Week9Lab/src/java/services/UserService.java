@@ -32,7 +32,6 @@ public class UserService {
        User user = new User(); 
        user.setEmail(email); 
        UserDB userDB = new UserDB(); 
-       userDB.delete(user);
-        
+       userDB.delete(email);        
     }
 }
